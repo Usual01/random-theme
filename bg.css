@@ -1,0 +1,39 @@
+
+*{
+    box-sizing: border-box;
+}
+.container{
+    display:grid;
+    grid-template-rows: 1fr, 1fr;
+    row-gap: 1rem;
+      
+}
+body{
+    display: flex;
+    
+    align-items: center;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    color:#5900ff;
+    width: 100%; 
+}
+button{
+    background-color: rgb(32, 30, 34);
+    color: white;
+    padding: 1rem;
+    font-size: 1.2rem;
+    font-family: inherit;
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    border: none;
+    margin: 1rem;
+    border-radius: 5px;
+}
+button:focus{
+    outline: none;
+}
+button:active{
+    box-shadow: 0;
+    transform: translate(2px,2px);
+}
