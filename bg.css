@@ -4,7 +4,6 @@
 }
 .container{
     display:grid;
-    grid-template-rows: 1fr, 1fr;
     row-gap: 1rem;
       
 }
@@ -20,8 +19,8 @@ body{
     width: 100%; 
 }
 button{
-    background-color: rgb(32, 30, 34);
-    color: white;
+    background-color: transparent;
+    color: goldenrod;
     padding: 1rem;
     font-size: 1.2rem;
     font-family: inherit;
@@ -29,6 +28,7 @@ button{
     border: none;
     margin: 1rem;
     border-radius: 5px;
+    text-transform: capitalize;
 }
 button:focus{
     outline: none;
