@@ -1,53 +1,108 @@
-const btn = document.getElementById('btn');
+const btns = document.getElementById('btns');
+const btnr = document.getElementById('btnr');
+const btnc = document.getElementById('btnc');
 
-btn.addEventListener('click', () => {
-    document.body.style.background = randomBg();
-    randomBg();
-});
+btnc.addEventListener('click', conicgradientColors);
 
-function randomBg(){
-    return `hsl(${Math.floor(Math.random() * 360)},100%,50%)`
-};
+btnl.addEventListener('click', lineargradientColors);
+btnr.addEventListener('click', radialgradientColors);
 
-function random_bg_color(){
-    let hex = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e'];
-    let a;
 
-    function populate(a){
-        for(let i=0; i<6; i++){
-            let x = Math.round(Math.random() * 14);
-            let y = hex[x];
-            a += y;
-        }
-        return a;
-    }
-    let Color1 = populate('#');
-    let Color2 = populate('#');
-    var angle = 'to right';
-
-    let gradient = 'linear-gradient(' + angle + ',' + Color1 + ', ' + Color2 + ")";
-    document.body.style.background = gradient;
-}
-function gaga(){
-    function getRandomLower(){
-        return String.fromCharCode (Math.floor(Math.random() * 26) + 97)
-    }
-    function getRandomNumber(){
-        return String.fromCharCode (Math.floor(Math.random() * 10) + 48)
-        
-    }
-    console.log('I am a boy')
+function conicgradientColors(){
+  
+  function arrayFromLowToHigh(low, high) {
     
-    let small=getRandomLower()
-    let number = getRandomNumber() 
-    console.log(small)
-    let combined = []
-    for(let i=0; i<7; i++){
-        var color =  small.concat(number) 
-        combined.push(color)
-        console.log(color)
-    }
-    return combined.join('')
-    console.log(color)
+    const arrayCodes = []
+        for ( var i = low; i <= high; i++) {
+          arrayCodes.push(i)
+        }
+         return arrayCodes
+      }
+      
+  var hexletters = arrayFromLowToHigh(97, 103)
+var hexnumbers = arrayFromLowToHigh(48, 53)
+var color = hexletters.concat(hexnumbers)
+console.log(color)
+   const colorCharacters = []
+   for (let i = 0; i < 6; i++) {
+     const colorCode = color[Math.floor(Math.random() * color.length)]
+     colorCharacters.push(String.fromCharCode(colorCode))
+  }
+  console.log(colorCharacters)
+  var color1 = '#' + colorCharacters.join('')
+  var color2 = '#' + colorCharacters.sort().join('');
+  var color3 = '#' + colorCharacters.reverse().sort().join('');
+  var angle = Math.round(Math.random() * 350) + "deg";
+  var percent = Math.round(Math.random() * 360) + "%"
+  var percent1 = Math.round(Math.random() * 360) + "%"
+  var percent2 = Math.round(Math.random() * 360) + "%"
+
+  jk = 'repeating-conic-gradient('+ color3 + " " + angle + ', ' + color1 + ', ' + color2  + ' ' + percent + ")";
+  document.body.style.background = jk; 
+  console.log(jk)
 }
-//hsl(hue, saturation, lightness)
+function lineargradientColors(){
+  function arrayFromLowToHigh(low, high) {
+    
+    const arrayCodes = []
+        for ( var i = low; i <= high; i++) {
+          arrayCodes.push(i)
+        }
+         return arrayCodes
+      }
+      
+  var hexletters = arrayFromLowToHigh(97, 103)
+var hexnumbers = arrayFromLowToHigh(48, 53)
+var color = hexletters.concat(hexnumbers)
+console.log(color)
+   const colorCharacters = []
+   for (let i = 0; i < 6; i++) {
+     const colorCode = color[Math.floor(Math.random() * color.length)]
+     colorCharacters.push(String.fromCharCode(colorCode))
+  }
+  console.log(colorCharacters)
+  var color1 = '#' + colorCharacters.join('')
+  var color2 = '#' + colorCharacters.sort().join('');
+  var color3 = '#' + colorCharacters.reverse().sort().join('');
+  var angle = Math.round(Math.random() * 350) + "deg";
+  var percent = Math.round(Math.random() * 360) + "%"
+  var percent1 = Math.round(Math.random() * 360) + "%"
+  var percent2 = Math.round(Math.random() * 360) + "%"
+
+  jk = 'repeating-linear-gradient(' + angle + ',' + color1 + ', ' + color2 + ")";
+  document.body.style.background = jk;
+  console.log(jk)
+  }
+  function radialgradientColors(){
+    function arrayFromLowToHigh(low, high) {
+    
+      const arrayCodes = []
+          for ( var i = low; i <= high; i++) {
+            arrayCodes.push(i)
+          }
+           return arrayCodes
+        }
+        
+    var hexletters = arrayFromLowToHigh(97, 103)
+  var hexnumbers = arrayFromLowToHigh(48, 53)
+  var color = hexletters.concat(hexnumbers)
+  console.log(color)
+     const colorCharacters = []
+     for (let i = 0; i < 6; i++) {
+       const colorCode = color[Math.floor(Math.random() * color.length)]
+       colorCharacters.push(String.fromCharCode(colorCode))
+    }
+    console.log(colorCharacters)
+    var color1 = '#' + colorCharacters.join('')
+    var color2 = '#' + colorCharacters.sort().join('');
+    var color3 = '#' + colorCharacters.reverse().sort().join('');
+    var angle = Math.round(Math.random() * 350) + "deg";
+    var percent = Math.round(Math.random() * 360) + "%"
+    var percent1 = Math.round(Math.random() * 360) + "%"
+    var percent2 = Math.round(Math.random() * 360) + "%"
+  
+    jk = 'repeating-radial-gradient('+"ellipse at top, "  + color3+  ' ' +percent2+ ','  + color1 +" " + percent1+ ', ' + color2 +  " " +  percent + ")";
+    document.body.style.background = jk;
+    console.log(jk)
+  
+  }
