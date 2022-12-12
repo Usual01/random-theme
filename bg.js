@@ -1,108 +1,58 @@
-const btns = document.getElementById('btns');
-const btnr = document.getElementById('btnr');
-const btnc = document.getElementById('btnc');
+const btns = document.getElementById('btns'),btnr = document.getElementById('btnr'),btnc = document.getElementById('btnc');
 
 btnc.addEventListener('click', conicgradientColors);
-
 btnl.addEventListener('click', lineargradientColors);
 btnr.addEventListener('click', radialgradientColors);
 
+var angle = Math.round(Math.random() * 360) + "deg";
+var percent = Math.round(Math.random() * 360) + "%"
+var percent1 = Math.round(Math.random() * 360) + "%"
+var percent2 = Math.round(Math.random() * 360) + "%"
 
+function arrayFromLowToHigh(low, high) {    
+  const arrayCodes = []
+for ( var i = low; i <= high; i++){arrayCodes.push(i)}return arrayCodes
+}
 function conicgradientColors(){
-  
-  function arrayFromLowToHigh(low, high) {
-    
-    const arrayCodes = []
-        for ( var i = low; i <= high; i++) {
-          arrayCodes.push(i)
-        }
-         return arrayCodes
-      }
-      
-  var hexletters = arrayFromLowToHigh(97, 103)
-var hexnumbers = arrayFromLowToHigh(48, 53)
-var color = hexletters.concat(hexnumbers)
-console.log(color)
-   const colorCharacters = []
+var hexletters = arrayFromLowToHigh(48, 53).concat(97, 103)
+const colorCharacters = []
    for (let i = 0; i < 6; i++) {
-     const colorCode = color[Math.floor(Math.random() * color.length)]
+     const colorCode = hexletters[Math.floor(Math.random() * hexletters.length)]
      colorCharacters.push(String.fromCharCode(colorCode))
   }
-  console.log(colorCharacters)
-  var color1 = '#' + colorCharacters.join('')
-  var color2 = '#' + colorCharacters.sort().join('');
-  var color3 = '#' + colorCharacters.reverse().sort().join('');
-  var angle = Math.round(Math.random() * 350) + "deg";
-  var percent = Math.round(Math.random() * 360) + "%"
-  var percent1 = Math.round(Math.random() * 360) + "%"
-  var percent2 = Math.round(Math.random() * 360) + "%"
-
-  jk = 'repeating-conic-gradient('+ color3 + " " + angle + ', ' + color1 + ', ' + color2  + ' ' + percent + ")";
-  document.body.style.background = jk; 
-  console.log(jk)
+var color1 = '#' + colorCharacters.join('')
+var color2 = '#' + colorCharacters.sort().join('');
+var color3 = '#' + colorCharacters.reverse().sort().join('');
+jk = `repeating-conic-gradient(${color3} ${angle} , ${color1} ${percent1}, ${color2} ${percent}, ${color3} ${percent2})`
+document.body.style.background = jk; 
 }
 function lineargradientColors(){
-  function arrayFromLowToHigh(low, high) {
-    
-    const arrayCodes = []
-        for ( var i = low; i <= high; i++) {
-          arrayCodes.push(i)
-        }
-         return arrayCodes
-      }
-      
-  var hexletters = arrayFromLowToHigh(97, 103)
-var hexnumbers = arrayFromLowToHigh(48, 53)
-var color = hexletters.concat(hexnumbers)
-console.log(color)
-   const colorCharacters = []
-   for (let i = 0; i < 6; i++) {
-     const colorCode = color[Math.floor(Math.random() * color.length)]
+var hexletters = arrayFromLowToHigh(48, 53).concat(97, 103)
+const colorCharacters = []
+for (let i = 0; i < 6; i++) {
+     const colorCode = hexletters[Math.floor(Math.random() * hexletters.length)]
      colorCharacters.push(String.fromCharCode(colorCode))
   }
-  console.log(colorCharacters)
   var color1 = '#' + colorCharacters.join('')
   var color2 = '#' + colorCharacters.sort().join('');
   var color3 = '#' + colorCharacters.reverse().sort().join('');
-  var angle = Math.round(Math.random() * 350) + "deg";
-  var percent = Math.round(Math.random() * 360) + "%"
-  var percent1 = Math.round(Math.random() * 360) + "%"
-  var percent2 = Math.round(Math.random() * 360) + "%"
-
-  jk = 'repeating-linear-gradient(' + angle + ',' + color1 + ', ' + color2 + ")";
+jk = `repeating-linear-gradient(${angle}, ${color1} ${percent1}, ${color2} ${percent2}, ${color3} ${percent})`;
   document.body.style.background = jk;
-  console.log(jk)
   }
+  for (let i = 0; i < 6; i++) {
+    const colorCode = hexletters[Math.floor(Math.random() * hexletters.length)]
+    colorCharacters.push(String.fromCharCode(colorCode))
+}
   function radialgradientColors(){
-    function arrayFromLowToHigh(low, high) {
-    
-      const arrayCodes = []
-          for ( var i = low; i <= high; i++) {
-            arrayCodes.push(i)
-          }
-           return arrayCodes
-        }
-        
-    var hexletters = arrayFromLowToHigh(97, 103)
-  var hexnumbers = arrayFromLowToHigh(48, 53)
-  var color = hexletters.concat(hexnumbers)
-  console.log(color)
-     const colorCharacters = []
-     for (let i = 0; i < 6; i++) {
-       const colorCode = color[Math.floor(Math.random() * color.length)]
-       colorCharacters.push(String.fromCharCode(colorCode))
-    }
-    console.log(colorCharacters)
-    var color1 = '#' + colorCharacters.join('')
-    var color2 = '#' + colorCharacters.sort().join('');
-    var color3 = '#' + colorCharacters.reverse().sort().join('');
-    var angle = Math.round(Math.random() * 350) + "deg";
-    var percent = Math.round(Math.random() * 360) + "%"
-    var percent1 = Math.round(Math.random() * 360) + "%"
-    var percent2 = Math.round(Math.random() * 360) + "%"
-  
-    jk = 'repeating-radial-gradient('+"ellipse at top, "  + color3+  ' ' +percent2+ ','  + color1 +" " + percent1+ ', ' + color2 +  " " +  percent + ")";
+    var hexletters = arrayFromLowToHigh(48, 53).concat(97, 103)
+   const colorCharacters = []
+for (let i = 0; i < 6; i++) {
+     const colorCode = hexletters[Math.floor(Math.random() * hexletters.length)]
+     colorCharacters.push(String.fromCharCode(colorCode))
+}
+var color1 = '#' + colorCharacters.join('')
+var color2 = '#' + colorCharacters.sort().join('');
+var color3 = '#' + colorCharacters.reverse().sort().join('');
+jk =`repeating-radial-gradient(ellipse at center, ${color1} ${percent1}, ${color2} ${percent2}, ${color3} ${percent})`
     document.body.style.background = jk;
-    console.log(jk)
-  
   }
